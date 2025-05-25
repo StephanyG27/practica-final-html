@@ -1,266 +1,559 @@
 Archivo CSS
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>YOU - Serie de Netflix</title>
-  <style>
-    :root {
-      --primary: #E50914;
-      --secondary: #141414;
-      --accent: #B81D24;
-      --text: #FFFFFF;
-      --text-secondary: #E5E5E5;
+/* Reset y estilos base */
+:root {
+    --primary-color: #8b7355;
+    --secondary-color: #d4c8b8;
+    --dark-color: #333;
+    --light-color: #f9f7f4;
+    --white: #ffffff;
+    --black: #000000;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background-color: var(--dark-color);
+    transform: translateY(-2px);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+/* Encabezado */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-item {
+    margin-left: 30px;
+    position: relative;
+}
+
+.nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    padding: 10px 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.nav-icons {
+    margin-left: 30px;
+}
+
+.nav-icons a {
+    margin-left: 15px;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.nav-icons a:hover {
+    color: var(--primary-color);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--dark-color);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Sección principal (Hero) */
+.hero {
+    height: 100vh;
+    background: url('../images/hero-bg.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 80px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.hero-text {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--dark-color);
+}
+
+.btn-hero {
+    background-color: transparent;
+    color: var(--dark-color);
+    border: 2px solid var(--dark-color);
+}
+
+.btn-hero:hover {
+    background-color: var(--dark-color);
+    color: var(--white);
+}
+
+/* Productos destacados */
+.featured {
+    padding: 80px 0;
+    background-color: var(--light-color);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.product-card {
+    background-color: var(--white);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.btn-product {
+    padding: 10px 20px;
+    font-size: 12px;
+}
+
+.product-card h3 {
+    padding: 20px;
+    font-size: 1.2rem;
+}
+
+.product-price {
+    padding: 0 20px 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Sección "Acerca de" */
+.about-section {
+    padding: 80px 0;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Newsletter */
+.newsletter {
+    padding: 60px 0;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+}
+
+.newsletter h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.newsletter p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.newsletter-form {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    font-size: 16px;
+}
+
+.newsletter-form button {
+    border-radius: 0 2px 2px 0;
+}
+
+/* Pie de página */
+.footer {
+    background-color: var(--dark-color);
+    color: var(--white);
+    padding: 60px 0 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-col p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+}
+
+/* Diseño responsivo */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3rem;
     }
-
-    html {
-      scroll-behavior: smooth;
+    
+    .section-title {
+        font-size: 2rem;
     }
+}
 
-    body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--secondary);
-      color: var(--text);
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
     }
-
-    header {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('you_header.jpg');
-      background-size: cover;
-      height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 5%;
-      position: relative;
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
     }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 20px 5%;
-      background-color: rgba(0, 0, 0, 0.5);
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
     }
-
-    .logo {
-      color: var(--primary);
-      font-size: 2rem;
-      font-weight: bold;
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
-
-    nav ul {
-      display: flex;
-      list-style: none;
+    
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+        transition: 0.3s;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
-
-    nav ul li {
-      margin-left: 20px;
+    
+    .nav-menu.active {
+        left: 0;
     }
-
-    nav ul li a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
+    
+    .nav-item {
+        margin: 15px 0;
     }
-
-    nav ul li a:hover {
-      color: var(--primary);
+    
+    .nav-icons {
+        margin-left: 0;
     }
-
-    .header-content {
-      max-width: 600px;
+    
+    .hero-title {
+        font-size: 2.5rem;
     }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: var(--primary);
+    
+    .hero-text {
+        font-size: 1rem;
     }
-
-    .tagline {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      color: var(--text-secondary);
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
+}
 
-    .btn {
-      background-color: var(--primary);
-      color: var(--text);
-      border: none;
-      padding: 10px 20px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s;
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
     }
-
-    .btn:hover {
-      background-color: var(--accent);
+    
+    .section-title {
+        font-size: 1.8rem;
     }
-
-    .container {
-      padding: 50px 5%;
+    
+    .newsletter-form {
+        flex-direction: column;
     }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-      color: var(--primary);
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 10px;
+    
+    .newsletter-form input,
+    .newsletter-form button {
+        width: 100%;
+        border-radius: 2px;
     }
-
-    h3 {
-      color: var(--text);
-      margin-top: 40px;
+    
+    .newsletter-form button {
+        margin-top: 10px;
     }
+}
 
-    .characters {
-      display: flex;
-      overflow-x: auto;
-      padding: 20px 0;
-      gap: 20px;
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-
-    .character-card {
-      min-width: 150px;
-      text-align: center;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    .character-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--primary);
-    }
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
 
-    .Seasons-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+.delay-1 {
+    animation-delay: 0.2s;
+}
 
-    .season-poster {
-      width: 100%;
-      max-width: 300px;
-      margin: 10px;
-    }
+.delay-2 {
+    animation-delay: 0.4s;
+}
 
-    footer {
-      background-color: #000;
-      padding: 30px 5%;
-      text-align: center;
-      color: var(--text-secondary);
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav>
-      <div class="logo">YOU</div>
-      <ul>
-        <li><a href="#overview">Resumen</a></li>
-        <li><a href="#characters">Personajes</a></li>
-        <li><a href="#Seasons">Temporadas</a></li>
-      </ul>
-    </nav>
-    <div class="header-content">
-      <h1>YOU</h1>
-      <p class="tagline">Un joven peligrosamente encantador e intensamente obsesivo toma medidas extremas para insertarse en la vida de aquellos que le obsesionan.</p>
-      <button class="btn" onclick="window.open('https://www.netflix.com/title/80211991', '_blank')">Ver en Netflix</button>
-    </div>
-  </header>
-
-  <main>
-    <div class="container" id="overview">
-      <h2>Resumen</h2>
-      <p>YOU es un thriller psicológico que profundiza en la mente de Joe Goldberg, un bibliófilo peligrosamente encantador con una idea retorcida del amor. A lo largo de cinco temporadas, la serie explora temas como la obsesión, la identidad, la moralidad y la delgada línea entre el afecto y el control, todo a través del inquietante monólogo interno y comportamiento errático de Joe.</p>
-      <p>La serie aborda temas de obsesión, violencia y trauma a través del lente de su narrador poco fiable.</p>
-
-      <h3>Temporada 1</h3>
-      <p>La historia comienza en Nueva York, donde Joe conoce a Guinevere Beck. Se obsesiona y elimina personas en su vida, creyendo que la protege. La temporada termina con la muerte de Beck y el regreso de la ex de Joe, Candace.</p>
-
-      <h3>Temporada 2</h3>
-      <p>Joe se muda a Los Ángeles como "Will Bettelheim" y se enamora de Love Quinn, quien resulta ser igual de peligrosa. Ella está embarazada y Joe intenta asentarse, pero surge una nueva obsesión.</p>
-
-      <h3>Temporada 3</h3>
-      <p>Ahora casado y con un hijo en los suburbios, la relación de Joe y Love se desmorona en medio de nuevas obsesiones y asesinatos. Joe mata a Love y huye a Europa.</p>
-
-      <h3>Temporada 4</h3>
-      <p>En Londres, Joe se convierte en "Jonathan Moore" y es incriminado por un asesino en serie que resulta ser una figura de su imaginación. Joe abraza su oscuridad y regresa a EE. UU. con Kate.</p>
-
-      <h3>Temporada 5</h3>
-      <p>De vuelta en Nueva York, Joe vive como una figura pública adinerada. Su pasado resurge, forzándolo a decidir entre la redención o la destrucción. La temporada final explora si Joe realmente puede cambiar.</p>
-    </div>
-
-    <div class="container" id="characters">
-      <h2>Personajes Principales</h2>
-      <div class="characters">
-        <div class="character-card">
-          <img src="joe.jpg" alt="Joe Goldberg" class="character-image">
-          <h4>Joe Goldberg</h4>
-          <p>Penn Badgley</p>
-        </div>
-        <div class="character-card">
-          <img src="love_quinn.jpg" alt="Love Quinn" class="character-image">
-          <h4>Love Quinn</h4>
-          <p>Victoria Pedretti</p>
-        </div>
-        <div class="character-card">
-          <img src="beck.jpg" alt="Beck" class="character-image">
-          <h4>Guinevere Beck</h4>
-          <p>Elizabeth Lail</p>
-        </div>
-        <div class="character-card">
-          <img src="bronte.jpg" alt="Bronte" class="character-image">
-          <h4>Louise Flannery</h4>
-          <p>Madeline Brewer</p>
-        </div>
-        <div class="character-card">
-          <img src="kate.jpg" alt="Kate" class="character-image">
-          <h4>Kate Galvin</h4>
-          <p>Charlotte Ritchie</p>
-        </div>
-        <div class="character-card">
-          <img src="marienne.jpg" alt="Marienne" class="character-image">
-          <h4>Marienne Bellamy</h4>
-          <p>Tati Gabrielle</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container" id="Seasons">
-      <h2>Temporadas</h2>
-      <div class="Seasons-grid">
-        <img src="you_s1_poster.jpg" alt="Póster Temporada 1" class="season-poster">
-        <img src="you_s2_poster.jpg" alt="Póster Temporada 2" class="season-poster">
-        <img src="you_s3_poster.jpg" alt="Póster Temporada 3" class="season-poster">
-        <img src="you_s4_poster.jpg" alt="Póster Temporada 4" class="season-poster">
-        <img src="you_s5_poster.jpg" alt="Póster Temporada 5" class="season-poster">
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <p>&copy; Fan website de la serie YOU en Netflix creada por Stephany. Este sitio no es oficial y no está afiliado a Netflix.</p>
-    <p>Todas las imágenes y contenido relacionado con "YOU" son propiedad de Netflix y Warner Bros. Television.</p>
-  </footer>
-</body>
-</html>
+.delay-3 {
+    animation-delay: 0.6s;
+}
