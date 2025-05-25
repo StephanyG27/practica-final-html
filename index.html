@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YOU - Serie de Netflix</title>
+  <style>
+    :root {
+      --primary: #E50914;
+      --secondary: #141414;
+      --accent: #B81D24;
+      --text: #FFFFFF;
+      --text-secondary: #E5E5E5;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--secondary);
+      color: var(--text);
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('you_header.jpg');
+      background-size: cover;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 5%;
+      position: relative;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 5%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .logo {
+      color: var(--primary);
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--primary);
+    }
+
+    .header-content {
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: var(--text-secondary);
+    }
+
+    .btn {
+      background-color: var(--primary);
+      color: var(--text);
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: var(--accent);
+    }
+
+    .container {
+      padding: 50px 5%;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      color: var(--text);
+      margin-top: 40px;
+    }
+
+    .characters {
+      display: flex;
+      overflow-x: auto;
+      padding: 20px 0;
+      gap: 20px;
+    }
+
+    .character-card {
+      min-width: 150px;
+      text-align: center;
+    }
+
+    .character-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+    }
+
+    .Seasons-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .season-poster {
+      width: 100%;
+      max-width: 300px;
+      margin: 10px;
+    }
+
+    footer {
+      background-color: #000;
+      padding: 30px 5%;
+      text-align: center;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">YOU</div>
+      <ul>
+        <li><a href="#overview">Resumen</a></li>
+        <li><a href="#characters">Personajes</a></li>
+        <li><a href="#Seasons">Temporadas</a></li>
+      </ul>
+    </nav>
+    <div class="header-content">
+      <h1>YOU</h1>
+      <p class="tagline">Un joven peligrosamente encantador e intensamente obsesivo toma medidas extremas para insertarse en la vida de aquellos que le obsesionan.</p>
+      <button class="btn" onclick="window.open('https://www.netflix.com/title/80211991', '_blank')">Ver en Netflix</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container" id="overview">
+      <h2>Resumen</h2>
+      <p>YOU es un thriller psicológico que profundiza en la mente de Joe Goldberg, un bibliófilo peligrosamente encantador con una idea retorcida del amor. A lo largo de cinco temporadas, la serie explora temas como la obsesión, la identidad, la moralidad y la delgada línea entre el afecto y el control, todo a través del inquietante monólogo interno y comportamiento errático de Joe.</p>
+      <p>La serie aborda temas de obsesión, violencia y trauma a través del lente de su narrador poco fiable.</p>
+
+      <h3>Temporada 1</h3>
+      <p>La historia comienza en Nueva York, donde Joe conoce a Guinevere Beck. Se obsesiona y elimina personas en su vida, creyendo que la protege. La temporada termina con la muerte de Beck y el regreso de la ex de Joe, Candace.</p>
+
+      <h3>Temporada 2</h3>
+      <p>Joe se muda a Los Ángeles como "Will Bettelheim" y se enamora de Love Quinn, quien resulta ser igual de peligrosa. Ella está embarazada y Joe intenta asentarse, pero surge una nueva obsesión.</p>
+
+      <h3>Temporada 3</h3>
+      <p>Ahora casado y con un hijo en los suburbios, la relación de Joe y Love se desmorona en medio de nuevas obsesiones y asesinatos. Joe mata a Love y huye a Europa.</p>
+
+      <h3>Temporada 4</h3>
+      <p>En Londres, Joe se convierte en "Jonathan Moore" y es incriminado por un asesino en serie que resulta ser una figura de su imaginación. Joe abraza su oscuridad y regresa a EE. UU. con Kate.</p>
+
+      <h3>Temporada 5</h3>
+      <p>De vuelta en Nueva York, Joe vive como una figura pública adinerada. Su pasado resurge, forzándolo a decidir entre la redención o la destrucción. La temporada final explora si Joe realmente puede cambiar.</p>
+    </div>
+
+    <div class="container" id="characters">
+      <h2>Personajes Principales</h2>
+      <div class="characters">
+        <div class="character-card">
+          <img src="joe.jpg" alt="Joe Goldberg" class="character-image">
+          <h4>Joe Goldberg</h4>
+          <p>Penn Badgley</p>
+        </div>
+        <div class="character-card">
+          <img src="love_quinn.jpg" alt="Love Quinn" class="character-image">
+          <h4>Love Quinn</h4>
+          <p>Victoria Pedretti</p>
+        </div>
+        <div class="character-card">
+          <img src="beck.jpg" alt="Beck" class="character-image">
+          <h4>Guinevere Beck</h4>
+          <p>Elizabeth Lail</p>
+        </div>
+        <div class="character-card">
+          <img src="bronte.jpg" alt="Bronte" class="character-image">
+          <h4>Louise Flannery</h4>
+          <p>Madeline Brewer</p>
+        </div>
+        <div class="character-card">
+          <img src="kate.jpg" alt="Kate" class="character-image">
+          <h4>Kate Galvin</h4>
+          <p>Charlotte Ritchie</p>
+        </div>
+        <div class="character-card">
+          <img src="marienne.jpg" alt="Marienne" class="character-image">
+          <h4>Marienne Bellamy</h4>
+          <p>Tati Gabrielle</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="Seasons">
+      <h2>Temporadas</h2>
+      <div class="Seasons-grid">
+        <img src="you_s1_poster.jpg" alt="Póster Temporada 1" class="season-poster">
+        <img src="you_s2_poster.jpg" alt="Póster Temporada 2" class="season-poster">
+        <img src="you_s3_poster.jpg" alt="Póster Temporada 3" class="season-poster">
+        <img src="you_s4_poster.jpg" alt="Póster Temporada 4" class="season-poster">
+        <img src="you_s5_poster.jpg" alt="Póster Temporada 5" class="season-poster">
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; Fan website de la serie YOU en Netflix creada por Stephany. Este sitio no es oficial y no está afiliado a Netflix.</p>
+    <p>Todas las imágenes y contenido relacionado con "YOU" son propiedad de Netflix y Warner Bros. Television.</p>
+  </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
